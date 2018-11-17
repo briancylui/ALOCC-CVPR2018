@@ -16,7 +16,7 @@ flags.DEFINE_float("learning_rate", 0, "Learning rate of for adam [0.0002]")
 flags.DEFINE_float("beta1", 0.5, "Momentum term of adam [0.5]")
 flags.DEFINE_integer("attention_label", 1, "Conditioned label that growth attention of training label [1]")
 flags.DEFINE_float("r_alpha", 0.2, "Refinement parameter [0.2]")
-flags.DEFINE_integer("train_size", np.inf, "The size of train images [np.inf]")
+flags.DEFINE_float("train_size", np.inf, "The size of train images [np.inf]")
 flags.DEFINE_integer("batch_size", 128, "The size of batch images [64]")
 flags.DEFINE_integer("input_height", 45, "The size of image to use. [45]")
 flags.DEFINE_integer("input_width", None, "The size of image to use. If None, same value as input_height [None]")
@@ -63,22 +63,22 @@ def main(_):
     lst_test_dirs = ['Test004','Test005','Test006']
 
     #DATASET PARAMETER : MNIST
-    #FLAGS.dataset = 'mnist'
-    #FLAGS.dataset_address = './dataset/mnist'
-    #nd_input_frame_size = (28, 28)
-    #nd_patch_size = (28, 28)
-    #FLAGS.checkpoint_dir = "./checkpoint/mnist_128_28_28/"
+    FLAGS.dataset = 'mnist'
+    FLAGS.dataset_address = './dataset/mnist'
+    nd_input_frame_size = (28, 28)
+    nd_patch_size = (28, 28)
+    FLAGS.checkpoint_dir = "./checkpoint/mnist_128_28_28/"
 
-    #FLAGS.input_width = nd_patch_size[0]
-    #FLAGS.input_height = nd_patch_size[1]
-    #FLAGS.output_width = nd_patch_size[0]
-    #FLAGS.output_height = nd_patch_size[1]
+    FLAGS.input_width = nd_patch_size[0]
+    FLAGS.input_height = nd_patch_size[1]
+    FLAGS.output_width = nd_patch_size[0]
+    FLAGS.output_height = nd_patch_size[1]
 
 
     check_some_assertions()
 
     nd_patch_size = (FLAGS.input_width, FLAGS.input_height)
-    FLAGS.nStride = n_stride
+    #FLAGS.n_stride = n_stride
 
     #FLAGS.input_fname_pattern = '*'
     FLAGS.train = False

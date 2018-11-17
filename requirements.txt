@@ -1,0 +1,7 @@
+tensorflow-gpu
+numpy
+scipy
+scikit-image
+imageio
+matplotlib
+pillow
